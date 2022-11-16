@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+// import { Button } from '@mui/material';
+import { 
+	Switch, 
+	Route 
+} from "react-router-dom"
+import Navbar from './components/Navbar';
+import Carousel from './components/Carrusel';
+import ProductList from "./components/ProductList";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+    	<Navbar />
+		<Carousel />	
+
+		
+		<Switch>
+			<Route exact path="/" component={ProductList} />
+
+			{/* <Route path="/details/:id" render={(props) => <Details {...props} />} />
+
+			<Route path="/cart" component={Cart} /> */}
+		</Switch> 
+		
+      
     </div>
   );
 }
