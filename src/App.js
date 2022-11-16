@@ -3,7 +3,7 @@ import './App.css';
 import { 
 	Switch, 
 	Route 
-} from "react-router-dom"
+} from "react-router-dom";
 import Navbar from './components/Navbar';
 import Carousel from './components/Carrusel';
 import ProductList from "./components/ProductList";
@@ -18,10 +18,11 @@ function App() {
 		
 		<Switch>
 			<Route exact path="/" component={ProductList} />
+			{/* 
+			<Route path="/details/:id" render={(props) => <Details {...props} />} />
 
-			{/* <Route path="/details/:id" render={(props) => <Details {...props} />} />
-
-			<Route path="/cart" component={Cart} /> */}
+			<Route path="/cart" component={Cart} /> 
+			*/}
 		</Switch> 
 		
       

@@ -42,23 +42,34 @@ const product = [
 ]
 
 // GET ALL PRODUCT
+// export function getAllProduct(){
+//     if(process.env.REACT_APP_API_EXTERNA === "false"){
+//         return async function(dispatch){
+//             let json = await product;
+//             return dispatch({
+//                 type: 'GET_ALL_PRODUCT',
+//                 payload: json
+//             })
+//         } 
+//     } else {
+//         return async function(dispatch){
+//             let json = await axios.get(process.env.REACT_APP_API_URL);
+//             return dispatch({
+//                 type: 'GET_ALL_PRODUCT',
+//                 payload: json.data
+//             })
+//         }
+//     }
+// }
+
+
 export function getAllProduct(){
-    if(process.env.REACT_APP_API_EXTERNA === "false"){
-        return async function(dispatch){
-            let json = await product;
-            return dispatch({
-                type: 'GET_ALL_PRODUCT',
-                payload: json
-            })
-        } 
-    } else {
-        return async function(dispatch){
-            let json = await axios.get(process.env.REACT_APP_API_URL);
-            return dispatch({
-                type: 'GET_ALL_PRODUCT',
-                payload: json.data
-            })
-        }
-    }
+    return async function(dispatch){
+        let json = await product;
+        return dispatch({
+            type: 'GET_ALL_PRODUCT',
+            payload: json
+        })
+    } 
 }
 
