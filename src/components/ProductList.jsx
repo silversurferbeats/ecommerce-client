@@ -27,10 +27,15 @@ function ProductList(props) {
                 allProduct.map((el, index) => (
                     <Grid item xs={12} sm={6} md={4} key={index}>
                         <Card 
-                            key={el.id}
-                            image={el.image}
-                            title={el.name}
-                            price={el.shopId}
+                            key={index}
+                            color={el.color}
+                            description={el.description}
+                            name={el.name}
+                            photo={el.photo}
+                            price={el.price}
+                            rated={el.rated}
+                            size={el.size}
+                            status={el.status}
                         />
                     </Grid>
                 ))

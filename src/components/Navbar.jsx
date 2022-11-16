@@ -12,9 +12,10 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import SaveAsIcon from '@mui/icons-material/SaveAs';
 import MoreIcon from '@mui/icons-material/MoreVert';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -59,7 +60,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -122,10 +122,10 @@ export default function PrimarySearchAppBar() {
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
-            <MailIcon />
+            <AddShoppingCartIcon />
           </Badge>
         </IconButton>
-        <p>Messages</p>
+        <p>Shop</p>
       </MenuItem>
       <MenuItem>
         <IconButton
@@ -133,11 +133,11 @@ export default function PrimarySearchAppBar() {
           aria-label="show 17 new notifications"
           color="inherit"
         >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
+          <Badge badgeContent={1} color="error">
+            <SaveAsIcon />
           </Badge>
         </IconButton>
-        <p>Notifications</p>
+        <p>Add Product</p>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
@@ -156,7 +156,7 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" style={{ background: 'transparent', color: 'black' }}>
         <Toolbar>
           <IconButton
             size="large"
@@ -167,6 +167,7 @@ export default function PrimarySearchAppBar() {
           >
             <MenuIcon />
           </IconButton>
+
           <Typography
             variant="h6"
             noWrap
@@ -175,6 +176,7 @@ export default function PrimarySearchAppBar() {
           >
             MUI
           </Typography>
+
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -184,11 +186,13 @@ export default function PrimarySearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
+
           <Box sx={{ flexGrow: 1 }} />
+
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
-                <MailIcon />
+                <AddShoppingCartIcon />
               </Badge>
             </IconButton>
             <IconButton
@@ -196,8 +200,8 @@ export default function PrimarySearchAppBar() {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
+              <Badge badgeContent={1} color="error">
+                <SaveAsIcon />
               </Badge>
             </IconButton>
             <IconButton
@@ -212,6 +216,7 @@ export default function PrimarySearchAppBar() {
               <AccountCircle />
             </IconButton>
           </Box>
+          
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"

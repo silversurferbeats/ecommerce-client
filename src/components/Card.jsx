@@ -12,15 +12,30 @@ export default function ActionAreaCard(props) {
         <CardMedia
           component="img"
           height="140"
-          image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
+          image={props.photo}
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {props.title}
+            {props.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             $: {props.price}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            rated: {props.rated}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            size: {props.size}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            status: {props.status}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            color: {props.color}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            description: {props.description}
           </Typography>
         </CardContent>
       </CardActionArea>
