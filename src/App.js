@@ -1,31 +1,27 @@
 import './App.css';
-// import { Button } from '@mui/material';
 import { 
 	Switch, 
 	Route 
 } from "react-router-dom";
 import Navbar from './components/Navbar';
-import Carousel from './components/Carrusel';
 import ProductList from "./components/ProductList";
+import CreateForm from './components/CreateForm';
+import Details from './components/Details';
+import Shop from './components/Shop';
+
+
+
 
 function App() {
   return (
     <div className="App">
-      
     	<Navbar />
-		<Carousel />	
-
-		
 		<Switch>
 			<Route exact path="/" component={ProductList} />
-			{/* 
+			<Route exact path="/create" component={CreateForm} />
 			<Route path="/details/:id" render={(props) => <Details {...props} />} />
-
-			<Route path="/cart" component={Cart} /> 
-			*/}
+			<Route path="/shop" component={Shop} />
 		</Switch> 
-		
-      
     </div>
   );
 }

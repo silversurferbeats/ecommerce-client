@@ -15,6 +15,8 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import SaveAsIcon from '@mui/icons-material/SaveAs';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import { Link } from "react-router-dom";
+import { Button } from '@mui/material';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -119,26 +121,32 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <AddShoppingCartIcon />
-          </Badge>
-        </IconButton>
-        <p>Shop</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={1} color="error">
-            <SaveAsIcon />
-          </Badge>
-        </IconButton>
-        <p>Add Product</p>
-      </MenuItem>
+      <Link to='/shop'>
+        <MenuItem>
+          <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            <Badge badgeContent={4} color="error">
+              <AddShoppingCartIcon />
+            </Badge>
+          </IconButton>
+          <p>Shop</p>
+        </MenuItem>
+      </Link>
+
+      <Link to='/create'>
+        <MenuItem>
+          <IconButton
+            size="large"
+            aria-label="show 17 new notifications"
+            color="inherit"
+          >
+            <Badge badgeContent={1} color="error">
+              <SaveAsIcon />
+            </Badge>
+          </IconButton>
+          <p>Add Product</p>
+        </MenuItem>
+      </Link>
+
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
@@ -156,7 +164,7 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ background: 'transparent', color: 'black' }}>
+      <AppBar position="static" style={{ background: 'transparent', color: 'gray' }}>
         <Toolbar>
           <IconButton
             size="large"
@@ -168,14 +176,16 @@ export default function PrimarySearchAppBar() {
             <MenuIcon />
           </IconButton>
 
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
-            MUI
-          </Typography>
+          <Link to='/'>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ display: { xs: 'none', sm: 'block' } }}
+            >
+              MUI
+            </Typography>
+          </Link>
 
           <Search>
             <SearchIconWrapper>
@@ -190,20 +200,30 @@ export default function PrimarySearchAppBar() {
           <Box sx={{ flexGrow: 1 }} />
 
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="error">
-                <AddShoppingCartIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
+            <IconButton 
+              size="large" 
+              aria-label="show 4 new mails" 
               color="inherit"
             >
-              <Badge badgeContent={1} color="error">
-                <SaveAsIcon />
+              <Badge badgeContent={4} color="error">
+                <Link to='/shop'>
+                  <AddShoppingCartIcon />
+                </Link>
               </Badge>
             </IconButton>
+
+              <IconButton
+                size="large"
+                aria-label="show 17 new notifications"
+                color="inherit"
+              >
+                <Badge badgeContent={1} color="error">
+                  <Link to='/create'>
+                    <SaveAsIcon />
+                  </Link>
+                </Badge>
+              </IconButton>
+
             <IconButton
               size="large"
               edge="end"
