@@ -16,8 +16,18 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import SaveAsIcon from '@mui/icons-material/SaveAs';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link } from "react-router-dom";
-import { Button } from '@mui/material';
 
+import { makeStyles } from '@mui/styles';
+
+const useStyle = makeStyles({
+  navStyle: {
+    width: '100%',
+    backgroundColor: 'transparent',
+    zIndex: '999',
+    position: 'fixed',
+    backdropFilter: "blur(5px)"
+  }
+})
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -60,10 +70,27 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar() {
+  const classes = useStyle();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+
+  //CAMBIAR  NAVBAR =>
+  const [navbar, setNavbar] = React.useState(false);
+
+  const backgroundChange = () =>{
+      if(window.scrollY >= 80){
+          setNavbar(false);
+      } else {
+          setNavbar(true);
+      }
+  }
+  window.addEventListener('scroll', backgroundChange);
+
+
+
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -121,7 +148,7 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <Link to='/shop'>
+      <Link to='/shop' style={{ textDecoration: 'none', color: 'gray' }}>
         <MenuItem>
           <IconButton size="large" aria-label="show 4 new mails" color="inherit">
             <Badge badgeContent={4} color="error">
@@ -132,7 +159,7 @@ export default function PrimarySearchAppBar() {
         </MenuItem>
       </Link>
 
-      <Link to='/create'>
+      <Link to='/create' style={{ textDecoration: 'none', color: 'gray' }}>
         <MenuItem>
           <IconButton
             size="large"
@@ -163,7 +190,7 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }} className={navbar ? '' : classes.navStyle}>
       <AppBar position="static" style={{ background: 'transparent', color: 'gray' }}>
         <Toolbar>
           <IconButton
@@ -176,7 +203,7 @@ export default function PrimarySearchAppBar() {
             <MenuIcon />
           </IconButton>
 
-          <Link to='/'>
+          <Link to='/' style={{ textDecoration: 'none', color: 'gray' }}>
             <Typography
               variant="h6"
               noWrap
@@ -206,7 +233,7 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <Badge badgeContent={4} color="error">
-                <Link to='/shop'>
+                <Link to='/shop' style={{ textDecoration: 'none', color: 'gray' }}>
                   <AddShoppingCartIcon />
                 </Link>
               </Badge>
@@ -218,7 +245,7 @@ export default function PrimarySearchAppBar() {
                 color="inherit"
               >
                 <Badge badgeContent={1} color="error">
-                  <Link to='/create'>
+                  <Link to='/create' style={{ textDecoration: 'none', color: 'gray' }}>
                     <SaveAsIcon />
                   </Link>
                 </Badge>

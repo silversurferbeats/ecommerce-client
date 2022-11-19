@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import Card from './Card';
 import { Link } from "react-router-dom";
-import {Grid} from '@material-ui/core'
+import {Grid} from '@material-ui/core';
+import bgGrid from '../assets/backgroundGrdCard.png';
 
 // REDUX
 import {getAllProduct} from '../redux/action';
@@ -23,13 +24,23 @@ function ProductList(props) {
     return(
         <>
             <Carousel />
-            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+            
+            <Grid 
+                container 
+                spacing={{ xs: 2, md: 3 }} 
+                columns={{ xs: 4, sm: 8, md: 12 }}
+                style={{ 
+                    backgroundImage: `url(${bgGrid})`,
+                    // backgroundColor: 'gray',
+                    margin: '2rem' 
+                }}
+            >
                 {
-                allProduct.map((el, index) => (
-                    <Grid item xs={12} sm={6} md={4} key={index}>
-                        <Link to={`/details/${index}`}>
+                allProduct.map((el) => (
+                    <Grid item xs={12} sm={6} md={4} key={el.id}  >
+                        <Link to={`/details/${el.id}`} style={{ textDecoration: 'none', color: 'gray' }}>
                             <Card 
-                                key={index}
+                                key={el.id}
                                 color={el.color}
                                 description={el.description}
                                 name={el.name}

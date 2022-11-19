@@ -7,6 +7,13 @@ import img1 from '../assets/image1.png';
 import img2 from '../assets/image2.png';
 import img3 from '../assets/image3.png';
 
+// const imgCarrusel = [
+//     {img1},
+//     {img2},
+//     {img3}
+// ]
+
+
 // console.log('imagenes del carrusel -->', items);
 
 const useStyle = makeStyles({
@@ -23,11 +30,13 @@ function Carrusel(props){
     return (
         <Carousel className={classes.carrusel}>
             {/* {
-                items.map( (item, i) => <Item key={i} item={item} /> )
+                imgCarrusel.map( (item, i) => <img key={i} src={item} item={item} /> )
             } */}
+            
             <img src={img1} alt='img' />
             <img src={img2} alt='img' />
             <img src={img3} alt='img' />
+           
         </Carousel>
     )
 }

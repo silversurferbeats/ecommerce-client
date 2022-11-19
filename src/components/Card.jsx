@@ -7,7 +7,7 @@ import { CardActionArea } from '@mui/material';
 
 export default function ActionAreaCard(props) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, margin: '1rem', background: 'transparent', opacity: '4.75' }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -15,28 +15,28 @@ export default function ActionAreaCard(props) {
           image={props.photo}
           alt="green iguana"
         />
-        <CardContent>
+        <CardContent style={{ backdropFilter: "blur(5px)", background: 'transparent', opacity: '4.75' }}>
           <Typography gutterBottom variant="h5" component="div">
             {props.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             $: {props.price}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          {/* <Typography variant="body2" color="text.secondary">
             rated: {props.rated}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
+          </Typography> */}
+          {/* <Typography variant="body2" color="text.secondary">
             size: {props.size}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
+          </Typography> */}
+          {/* <Typography variant="body2" color="text.secondary">
             status: {props.status}
-          </Typography>
+          </Typography> */}
           <Typography variant="body2" color="text.secondary">
             color: {props.color}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          {/* <Typography variant="body2" color="text.secondary">
             description: {props.description}
-          </Typography>
+          </Typography> */}
         </CardContent>
       </CardActionArea>
     </Card>

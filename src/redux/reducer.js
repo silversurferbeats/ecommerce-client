@@ -1,9 +1,11 @@
 import  {
-    GET_ALL_PRODUCT
+    GET_ALL_PRODUCT,
+    DETAIL_PRODUCT
 }  from "./action";
 
 const inicialState = {
-    allProduct: []
+    allProduct: [],
+    detailProduct: []
 }
 
 
@@ -14,6 +16,12 @@ const rootReducer = (state = inicialState, action) => {
             return {
                 ...state,
                 allProduct: action.payload,
+            }
+        case DETAIL_PRODUCT:
+            console.log('debug reducer idProduct->', action.payload);
+            return{
+                ...state,
+                detailProduct: action.payload
             }
         default: 
             return state;
